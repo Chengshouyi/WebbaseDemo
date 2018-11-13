@@ -37,7 +37,7 @@
         "env": {
           "NODE_ENV": "development"
         },
-        "console": "internalConsole",
+        "console": "integratedConsole",
         "sourceMaps": false,
         "outFiles": [ "${workspaceRoot}/out/**/*.js" ]
       },
