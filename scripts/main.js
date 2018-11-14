@@ -1,17 +1,33 @@
 /*
 It is a demo js file.
 */
+var myImage = document.querySelector('img');
+myImage.onclick = function(){
+    var mySrc = myImage.getAttribute('src');
+    if(mySrc === 'images/firefox-icon.png') {
+        myImage.setAttribute('src', 'images/2.jpg');
+    } else {
+        myImage.setAttribute('src','images/firefox-icon.png');
+    }
+};
+
+var myButton = document.querySelector('button');
 var myHeading = document.querySelector('h1');
-myHeading.textContent = 'Hello world';
-var myVariable = 'Bob';
-myVariable = 'Steve';
-var iceCream = 'chocolate';
-if (iceCream === 'chocolate'){
-    alert('Yay, I love chocolate ice cream!');
-}else{
-    alert('Awwww, but chocolate is my favorite...');
+
+myButton.onclick = function(){
+    setUserName();
+};
+
+if(!localStorage.getItem('name')) {
+    setUserName();
+} else {
+    var storedName = localStorage.getItem('name');
+    myHeading.innerHTML = 'Mozilla is cool, ' + storedName;
 }
-function multiply(num1, num2){
-    var result = num1 * num2;
-    return result;
+
+function setUserName() {
+    var myName = prompt('Please enter your name.');
+    localStorage.setItem('name', myName);
+    myHeading.innerHTML = 'Mozilla is cool, ' + myName;
 }
+
